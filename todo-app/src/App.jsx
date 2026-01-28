@@ -1,9 +1,43 @@
-
-import './App.css'
+import { useState } from "react";
+import Header from "./components/Header";
+import ToDoList from "./components/ToDoList";
+import "./index.css";
 
 function App() {
-  const [text, setText] = useState("")
-  
+  const [todos, setTodos] = useState([]);
+  const [text, setText] = useState("");
+
+  const addTodo = () => {
+    if (text.trim() === "") return;
+    setTodos([
+      ...todos,
+      { id: Date.now(), text, completed: false }
+    ]);
+    setText("");
+  };
+
+  const deleteTodo = (id) => {
+    setTodos(todos.filter(todo => todo.id !== id));
+  };
+
+  const toggleTodo = (id) => {
+    setTodos(
+      todos.map(todo =>
+        todo.id === id
+          ? { ...todo, completed: !todo.completed }
+          : todo
+      )
+    );
+  };
+
+  const editTodo = (id, newText) => {
+    setTodos(
+      todos.map(todo =>
+        todo.id === id ? { ...todo, text: newText } : todo
+      )
+    );
+  };
+
   return (
     <div className="app">
       <Header />
@@ -14,10 +48,16 @@ function App() {
           placeholder="Add a task..."
           onChange={(e) => setText(e.target.value)}
         />
-        <button>Add</button>
+        <button onClick={addTodo}>Add</button>
       </div>
+      <ToDoList
+        todos={todos}
+        deleteTodo={deleteTodo}
+        toggleTodo={toggleTodo}
+        editTodo={editTodo}
+      />
     </div>
   );
 }
 
-export default App
+export default App;

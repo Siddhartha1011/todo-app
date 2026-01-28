@@ -34,7 +34,6 @@ Follow the steps below to run the application locally:
 
 ```bash
  1. Clone the repository
-
 git clone https://github.com/Siddhartha1011/todo-app.git
 
  2. Navigate to the project folder

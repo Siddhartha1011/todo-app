@@ -32,19 +32,19 @@ The project is created using **Vite**, as required.
 
 Follow the steps below to run the application locally:
 
-### 1. Clone the repository
+ 1. Clone the repository
 ```bash
 git clone https://github.com/Siddhartha1011/todo-app.git
 
-### 2. Navigate to the project folder
+ 2. Navigate to the project folder
 ```bash
 cd todo-app
 
-### 3. Install dependencies
+ 3. Install dependencies
 ```bash
 npm install
 
-### 4. Run the application
+ 4. Run the application
 ```bash
 npm install,then open the local development URL shown in the terminal
 
